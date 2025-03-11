@@ -2,17 +2,15 @@ import { StatusBar } from "expo-status-bar";
 import { StyleSheet, Text, View } from "react-native";
 import { useState } from "react";
 import TodoList from "./components/TodoList";
+import tasks from "./data/tasks";
 
 export default function App() {
-  const [tasks, setTasks] = useState<string[]>([
-    "Do laundry",
-    "Go to gym",
-    "Walk dog",
-  ]);
+  const [tasksList, setTasksList] = useState(tasks);
 
   return (
     <View style={styles.container}>
-      <TodoList tasks={tasks} />
+      <Text style={styles.text}>My Tasks</Text>
+      <TodoList tasks={tasksList} />
     </View>
   );
 }
@@ -23,5 +21,10 @@ const styles = StyleSheet.create({
     backgroundColor: "#fff",
     alignItems: "center",
     justifyContent: "center",
+    gap: 20,
+    padding: 80,
+  },
+  text: {
+    fontSize: 50,
   },
 });

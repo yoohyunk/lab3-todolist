@@ -2,10 +2,25 @@ import { StyleSheet, View, Text } from "react-native";
 
 export default function TodoList({ tasks }: { tasks: string[] }) {
   return (
-    <View>
+    <View style={styles.container}>
       {tasks.map((task) => (
-        <Text key={task}>{task}</Text>
+        <Text key={task} style={styles.text}>
+          {task}
+        </Text>
       ))}
     </View>
   );
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: "#fff",
+    alignItems: "center",
+    justifyContent: "center",
+    gap: 7,
+  },
+  text: {
+    fontSize: 20,
+  },
+});
