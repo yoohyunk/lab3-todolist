@@ -3,13 +3,18 @@ import { StyleSheet, Text, View } from "react-native";
 import { useState } from "react";
 import TodoList from "./components/TodoList";
 import tasks from "./data/tasks";
+import { TodoForm } from "./components/TodoForm";
 
 export default function App() {
   const [tasksList, setTasksList] = useState(tasks);
+  const addTask = (task: any) => {
+    setTasksList((tasksList: string[]) => [task, ...tasksList]);
+  };
 
   return (
     <View style={styles.container}>
       <Text style={styles.text}>My Tasks</Text>
+      <TodoForm addTask={addTask} />
       <TodoList tasks={tasksList} />
     </View>
   );

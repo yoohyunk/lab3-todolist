@@ -3,8 +3,8 @@ import { StyleSheet, View, Text } from "react-native";
 export default function TodoList({ tasks }: { tasks: string[] }) {
   return (
     <View style={styles.container}>
-      {tasks.map((task) => (
-        <Text key={task} style={styles.text}>
+      {tasks.map((task, index) => (
+        <Text key={index} style={styles.text}>
           {task}
         </Text>
       ))}
